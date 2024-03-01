@@ -24,6 +24,6 @@ public class NotificationController {
     public ResponseEntity<SseEmitter> subscribe(@RequestHeader(value = AUTHORIZATION) String accessToken,
                                                 @RequestHeader(value = "Last-Event-ID", required = false, defaultValue = "") String lastEventId) {
         Long memberId = Long.valueOf(tokenProvider.getId(tokenProvider.resolveToken(accessToken)));
-        return ResponseEntity.ok(emitterService.addEmitter(memberId, lastEventId));
+        return ResponseEntity.ok(emitterService.addEmitter(String.valueOf(memberId), lastEventId));
     }
 }

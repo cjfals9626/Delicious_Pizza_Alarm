@@ -10,8 +10,9 @@ import org.spring.pizzarazzi_alarm.enums.OrderStatus;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDTO {
-    private Long memberId;
+public class KafkaOrderDTO {
+    private String from;
+    private String to;
     private Long orderId;
     private OrderStatus orderStatus;
     private Long totalPrice;

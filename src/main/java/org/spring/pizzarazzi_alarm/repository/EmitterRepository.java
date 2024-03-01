@@ -26,7 +26,7 @@ public class EmitterRepository {
         return new HashMap<>(emitters);
     }
 
-    public Map<String, SseEmitter> findAllEmitterStartWithById(Long memberId) {
+    public Map<String, SseEmitter> findAllEmitterStartWithById(String memberId) {
         return emitters.entrySet().stream()
                 .filter(entry -> {
                     String key = entry.getKey();
@@ -34,13 +34,13 @@ public class EmitterRepository {
                     if (index != -1) {
                         key = key.substring(0, index);
                     }
-                    long id = Long.parseLong(key);
-                    return id == memberId;
+
+                    return key.equals(memberId);
                 })
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
-    public Map<String, Object> findAllEventCacheStartWithById(Long memberId) {
+    public Map<String, Object> findAllEventCacheStartWithById(String memberId) {
         return eventCache.entrySet().stream()
                 .filter(entry -> {
                     String key = entry.getKey();
@@ -48,8 +48,8 @@ public class EmitterRepository {
                     if (index != -1) {
                         key = key.substring(0, index);
                     }
-                    long id = Long.parseLong(key);
-                    return id == memberId;
+
+                    return key.equals(memberId);
                 })
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
