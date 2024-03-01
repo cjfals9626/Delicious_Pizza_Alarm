@@ -1,0 +1,27 @@
+
+server:
+  port: 5010
+
+spring:
+  devtools:
+    restart:
+      enabled: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pizzarazzi?serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+
+
+kafka-config:
+  topic: "kafka-test"
+  bootstrap-servers: "localhost:9092"
+  group-id: "group-id"
