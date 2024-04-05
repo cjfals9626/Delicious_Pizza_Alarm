@@ -16,4 +16,5 @@ public class KafkaOrderDTO {
     private Long orderId;
     private OrderStatus orderStatus;
     private Long totalPrice;
+    private String massage;
 }
